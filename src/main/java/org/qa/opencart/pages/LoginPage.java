@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 	
-private WebDriver driver;
+	private WebDriver driver;
 	
 	private By email = By.id("input-email");
 	private By passwd = By.id("input-password");
@@ -23,7 +23,7 @@ private WebDriver driver;
 	public String getLoginPageUrl() {
 		return driver.getCurrentUrl();
 	}
-	
+	//page chaining
 	public AccountPage doLogin(String uN, String pwd) {
 		driver.findElement(email).sendKeys(uN);
 		driver.findElement(passwd).sendKeys(pwd);

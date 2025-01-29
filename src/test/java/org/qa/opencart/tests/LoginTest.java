@@ -1,6 +1,7 @@
 package org.qa.opencart.tests;
 
 import org.qa.opencart.base.BaseTest;
+import org.qa.opencart.constant.AppConstants;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +14,7 @@ public class LoginTest extends BaseTest {
 		
 		String title = lp.getLoginPageTitle();
 		
-		Assert.assertEquals(title, "Account Login");
+		Assert.assertEquals(title, AppConstants.LOGIN_PAGE_TITLE);
 		ChainTestListener.log("verifying login page title");
 	}
 	
@@ -26,7 +27,7 @@ public class LoginTest extends BaseTest {
 	
 	@Test(priority = 2)
 	public void verifyLoginFunctionality() {
-		accPage = lp.doLogin("aman@opencart.com", "12345");
+		accPage = lp.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 		Assert.assertEquals(accPage.getAccountPageTitle(), "My Account");
 		ChainTestListener.log("verifying user is loggedin to the application");
 	}
